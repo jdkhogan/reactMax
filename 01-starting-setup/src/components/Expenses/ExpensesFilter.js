@@ -13,7 +13,7 @@ function ExpensesFilter(props) {
         <div className='expenses-filter'>
             <div className='expenses-filter__control'>
                 <label htmlFor='yearFilter'>Filter by year</label>
-                <select id='yearFilter' onChange={handleInput}>
+                <select id='yearFilter' value={props.selected} onChange={handleInput}>
                     {inputs}
                 </select>
             </div>

@@ -19,7 +19,7 @@ function Expenses({items}) {
 
   return (
     <Card className='expenses'>
-      <ExpensesFilter onFilterYear={filteredYearHandler} />
+      <ExpensesFilter selected={filteredYear} onFilterYear={filteredYearHandler} />
       {expenseItems}
     </Card>
   );
