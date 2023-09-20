@@ -9,7 +9,7 @@ function Expenses({items}) {
   const [filteredYear, setFilteredYear] = React.useState();
   
   const expenseItems = items.map((expense, i) => 
-    <ExpenseItem key={i} description={expense.title} price={expense.amount} date={expense.date} />
+    <ExpenseItem key={i} title={expense.title} amount={expense.amount} date={expense.date} />
   );
   
   const filteredYearHandler = (filter) => {

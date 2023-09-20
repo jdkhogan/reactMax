@@ -6,16 +6,16 @@ import Card from '../Card';
 /**
  * Expense Form 
  * @param {string} date 
- * @param {string} description 
- * @param {number} price 
+ * @param {string} title 
+ * @param {number} amount 
  * @returns HTML code for an Expense Form
  */
 
 function ExpenseForm(props) {
     const [userInput, setUserInput] = useState({
-        description: "",
+        title: "",
         date: "",
-        price: "",
+        amount: "",
     });
     
     const handleInput = (e) => {
@@ -30,16 +30,16 @@ function ExpenseForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newItem = {
-            description: userInput.description,
-            price: userInput.price,
+            title: userInput.title,
+            amount: userInput.amount,
             date: new Date(userInput.date)
         };
 
         props.onSaveExpenseData(newItem);
 
         setUserInput({
-            description: "",
-            price: "",
+            title: "",
+            amount: "",
             date: ""
         });
 
@@ -49,16 +49,38 @@ function ExpenseForm(props) {
         <form onSubmit={handleSubmit}>
             <div className="new-expense__controls">
                 <div className="new-expense__control">
-                    <label htmlFor='description'>Description</label>
-                    <input type='text' id='description' name='description' value={userInput.description} onChange={handleInput}></input>
+                    <label htmlFor='title'>Title</label>
+                    <input 
+                        type='text' 
+                        id='title' 
+                        name='title' 
+                        value={userInput.title} 
+                        onChange={handleInput}>
+                    </input>
                 </div>
                 <div className="new-expense__control">
                     <label htmlFor='date'>Date</label>
-                    <input type='date' min='2019-01-01' max='2023-12-31' id='date' name='date' value={userInput.date} onChange={handleInput}></input>
+                    <input 
+                        type='date' 
+                        min='2019-01-01' 
+                        max='2023-12-31' 
+                        id='date' 
+                        name='date' 
+                        value={userInput.date} 
+                        onChange={handleInput}>
+                    </input>
                 </div>
                 <div className="new-expense__control">
-                    <label htmlFor='price'>Price</label>
-                    <input type='number' min='0' step='0.01' id='price' name='price' value={userInput.price} onChange={handleInput}></input>
+                    <label htmlFor='amount'>Amount</label>
+                    <input 
+                        type='number' 
+                        min='0' 
+                        step='0.01' 
+                        id='amount' 
+                        name='amount' 
+                        value={userInput.amount} 
+                        onChange={handleInput}>
+                    </input>
                 </div>
             </div>
             <div className='new-expense__actions'>
