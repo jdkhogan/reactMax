@@ -6,6 +6,11 @@ import './NewExpense.css';
 
 
 function NewExpense(props) {
+    const [formToggle, setFormToggle] = useState(false);
+    
+    const showForm = () => setFormToggle(true);
+    const hideForm = () => setFormToggle(false);
+
     const saveExpenseDataHandler = (enteredExpenseData) => {
         const expenseData = {
             ...enteredExpenseData, 
@@ -13,12 +18,18 @@ function NewExpense(props) {
         };
         
         props.onAddExpense(expenseData);
+        
+        hideForm();
     };
     
-
     return (
         <div className='new-expense'>
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+            {formToggle 
+                ? <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancel={hideForm} /> 
+                : <button onClick={showForm}>Add New Expense</button>
+            }
+
+            
         </div>
     );
 }
