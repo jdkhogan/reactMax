@@ -1,8 +1,15 @@
 import React from 'react';
 import styles from './Results.module.css';
 
-function Results({yearlyData}) {
+function Results({data}) {
     const headings = ["Year", "Total Savings", "Interest (Year)", "Total Interest", "Invested Capital"];
+
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
 
     return (
         <table className={styles.result}>
@@ -12,13 +19,13 @@ function Results({yearlyData}) {
                 </tr>
             </thead>
             <tbody>
-                {yearlyData.map((year, i) =>
-                    <tr key={'year_' + (i + 1)}>
-                        <td>{i + 1}</td>
-                        <td>${year.savingsEndOfYear.toFixed(2)}</td>
-                        <td>${year.yearlyInterest.toFixed(2)}</td>
-                        <td>${year.totalInterest.toFixed(2)}</td>
-                        <td>${year.totalInvestedCapital.toFixed(2)}</td>
+                {data.map(({year, savingsEndOfYear, yearlyInterest, totalInterest, totalInvestedCapital}) =>
+                    <tr key={'year_' + year}>
+                        <td>{year}</td>
+                        <td>{formatter.format(savingsEndOfYear)}</td>
+                        <td>{formatter.format(yearlyInterest)}</td>
+                        <td>{formatter.format(totalInterest)}</td>
+                        <td>{formatter.format(totalInvestedCapital)}</td>
                     </tr>
                 )}
             </tbody>
