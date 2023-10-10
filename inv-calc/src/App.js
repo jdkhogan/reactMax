@@ -3,16 +3,18 @@ import Calculator from './components/Calculator';
 import Results from './components/Results';
 
 function App() {
-  const [yearlyData,setYearlyData] = useState([]);
+  const [yearlyData, setYearlyData] = useState([]);
+  const buildResults = calculatedData => setYearlyData(calculatedData);
+  const resetForm = () => setYearlyData([]);
 
   return (
     <div>
-      <Calculator yearlyData={yearlyData} />
+      <Calculator yearlyData={yearlyData} onCalculate={buildResults} onReset={resetForm}/>
 
-      {/* Todo: Show below table conditionally (only once result data is available) */}
-      {/* Show fallback text if no data is available */}
-
-      <Results yearlyData={yearlyData} />
+      {yearlyData.length === 0 ? 
+        <p style={{textAlign: "center"}}>No investment data available.</p> : 
+        <Results yearlyData={yearlyData} />
+      }
     </div>
   );
 }
