@@ -18,8 +18,12 @@
 }
 
 .form-control input:focus, 
-.form-control input.invalid {
+.invalid input {
   outline: none;
   background: #ffeeee;
   border-color: #8b005d;
+}
+
+.invalid label {
+  color: red;
 }
