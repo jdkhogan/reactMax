@@ -1,0 +1,14 @@
+.userlist {
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+.userlist .user {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid gray;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+}
