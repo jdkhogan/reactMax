@@ -18,18 +18,9 @@ function UserForm(props) {
             }
         });
     };
-    
-    // const handleReset = () => {
-    //     setUserInput(initialUserInput);
-    //     props.onReset();
-    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addNewUser(userInput);
-    };
-
-    const addNewUser = (userInput) => {
         const username = userInput.username; 
         const age = +userInput.age; 
 
@@ -38,12 +29,10 @@ function UserForm(props) {
         // In both cases, 
         // 1) modal should be displayed and 
         // 2) form values should be maintained
-
-        const newUser = { username: username, age: age };
-        
-        // TODO: reset form
     
-        props.onAdd(newUser);
+        const newUser = { username: username, age: age };
+
+        props.onSaveNewUser(newUser);
         setUserInput(initialUserInput);
     };
     
@@ -52,7 +41,7 @@ function UserForm(props) {
             <div className={styles['new-user__control']}>
                 <label htmlFor='username'>Username</label>
                 <input 
-                    type='text' id='username' name='username'
+                    id='username' name='username' type='text' 
                     value={userInput.username}
                     onChange={handleInput}>
                 </input>
@@ -60,8 +49,8 @@ function UserForm(props) {
             <div className={styles['new-user__control']}>
                 <label htmlFor='age'>Age (Years)</label>
                 <input 
-                    type='number' min='0' step='1' 
                     id='age' name='age'
+                    type='number' min='0' step='1' 
                     value={userInput.age}
                     onChange={handleInput}>
                 </input>

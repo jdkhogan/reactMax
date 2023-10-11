@@ -26,7 +26,7 @@ function ExpenseForm(props) {
             }
         });
     };
-    username
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         const newItem = {

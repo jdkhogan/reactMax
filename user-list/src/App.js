@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import UserForm from './components/UserForm';
+import NewUser from './components/NewUser';
 import UserList from './components/UserList';
 
 
 function App() {
     const [userList, setUserList] = useState([]);
     
-    const addNewUser = newUser => {
+    const addUserHandler = newUser => {
         setUserList(prevList => {
-            const updatedList = [...prevList];
-            updatedList.unshift(newUser);
-            return updatedList;
+            return [newUser,...prevList];
         });
     }
     
@@ -23,7 +21,7 @@ function App() {
     return (
         <div>
             <section id="userInput">
-                <UserForm userList={userList} onAdd={addNewUser} />
+                <NewUser onAddUser={addUserHandler} />
             </section>
             <section id='userList'>
                 {content}
