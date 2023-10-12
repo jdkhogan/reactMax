@@ -5,7 +5,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 4rem auto;
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,10 +13,3 @@ body {
   background: radial-gradient(#303b37, #1a1f1d);
 }
 
-section {
-  max-width: 30rem;
-  border-radius: 10px;
-  padding: 1rem;
-  margin: 2rem auto;
-  background-color: white;
-}

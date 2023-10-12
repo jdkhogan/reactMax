@@ -1,0 +1,34 @@
+.error {
+    padding: 0;
+}
+
+.error .error-header {
+    background-color: #5f184b;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.error form {
+    padding: 1rem;
+}
+
+.error form .error-message {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.error .button {
+    margin-right: auto;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background: linear-gradient(180deg, #5f184b, #47193d);
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    cursor: pointer;
+}
+
+.error button:hover {
+    background: linear-gradient(180deg, #6f285b, #57294d);
+}

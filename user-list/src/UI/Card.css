@@ -1,0 +1,16 @@
+.card {
+  margin: 0 auto;
+  max-width: 30rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.card.padded {
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+.card.hidden {
+  display: none;
+}

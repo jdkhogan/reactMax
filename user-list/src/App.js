@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import Card from './UI/Card';
 import NewUser from './components/NewUser';
 import UserList from './components/UserList';
 
 
 function App() {
     const [userList, setUserList] = useState([]);
+    
     
     const addUserHandler = newUser => {
         setUserList(prevList => {
@@ -19,14 +21,13 @@ function App() {
     }
 
     return (
-        <div>
-            <section id="userInput">
-                <NewUser onAddUser={addUserHandler} />
-            </section>
-            <section id='userList'>
+        <>
+            <NewUser onAddUser={addUserHandler} />
+
+            <Card className="padded">
                 {content}
-            </section>
-        </div>
+            </Card>
+        </>
     );
 }
 
