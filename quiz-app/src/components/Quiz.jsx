@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Question from "./Question";
+import Timer from "./Timer";
 import Card from "./Card";
 
 import QUESTIONS from "../assets/questions.js";
@@ -30,6 +30,7 @@ const Quiz = (props) => {
 
     return (
         <Card id="quiz">
+            <Timer timeout="10000" onTimeout={() => handleSelectAnswer(null)} />
             <div id="question">
                 <h2>
                     Question {activeQuestionIndex+1}: {QUESTIONS[activeQuestionIndex].text}
