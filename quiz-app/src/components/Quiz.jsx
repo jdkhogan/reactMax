@@ -1,9 +1,9 @@
 import React, {useState, useCallback} from "react";
 import Card from "./Card";
 import Question from "./Question";
+import Summary from "./Summary";
 
 import QUESTIONS from "../assets/questions.js";
-import completeImg from "../assets/quiz-complete.png";
 
 
 const Quiz = () => {
@@ -20,10 +20,7 @@ const Quiz = () => {
 
     if (quizIsComplete) {
         return (
-            <Card id="summary">
-                <h2>Quiz Complete</h2>
-                <img src={completeImg} alt="Trophy image" />
-            </Card>
+            <Summary userAnswers={userAnswers} />
         );
     }
 
